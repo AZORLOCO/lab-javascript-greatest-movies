@@ -69,9 +69,13 @@ return moviesCopy;
 }
 
 // Iteration 6: Alphabetic Order - Order by title and print the first 20 titles
-function orderAlphabetically(moviesArray) {}
+function orderAlphabetically(moviesArray) {
+    const moviesCopy = [...moviesArray];
 
-
+    moviesCopy.sort((a, b) => a.title.localeCompare(b.title));
+    const titleOnly = moviesCopy.map(pelicula => pelicula.title);
+    return titleOnly.slice(0, 20);
+}
 
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
 function turnHoursToMinutes(moviesArray) {}
@@ -84,5 +88,6 @@ if (typeof movies !== "undefined") {
     console.log("Resultado del test:", howManyMovies(movies));
     console.log("Media del test:", scoresAverage(movies));
     console.log("Media Drama del test:", dramaMoviesScore(movies));
-    console.log("Listado", orderByYear(movies));  
-}
+    console.log("Listado por Año", orderByYear(movies));  
+    console.log("Listado Peliculas", orderAlphabetically(movies));
+};
